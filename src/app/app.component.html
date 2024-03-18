@@ -1,0 +1,28 @@
+<h1>State app</h1>
+<div class="content">
+  <input type="text" [(ngModel)]="categoryToAdd" name="categoryToAdd">
+  <br>
+  <button (click)="addCategory()">Add category</button>
+</div>
+<hr>
+<div class="content">
+  <div class="horizontal-list">
+    categories : <span *ngFor="let cat of (allCategories$ | async)"><button (click)="chooseCategory(cat)">{{ cat }}</button></span>
+
+    <br>
+    <br>
+    List of articles in this Category :
+    <br>
+    <ul>
+      <li *ngFor="let article of (articleList$ | async)">{{ article.name }} : {{ article.content }}</li>
+    </ul>
+  </div>
+</div>
+<hr>
+<div class="content">
+  name : <input type="text" [(ngModel)]="articleName" name="articleName">
+  <br>
+  content : <input type="text" [(ngModel)]="articleContent" name="articleContent">
+  <br>
+  <button (click)="addArticle()">add article</button>
+</div>
